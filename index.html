@@ -1,0 +1,2690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+  <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">    
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/flick/jquery-ui.css">
+  <link rel="stylesheet" href="css/audio-player.css">
+  <title>jQuery audioPlayer.js: Bootstrap 4 Audio Player Demo</title>
+</head>
+
+<body>
+
+  <section class="audio-player card" style="margin-top:10px">
+    <div class="card">
+      <div class="card-body">
+        <div class="row align-items-center mb-3 mx-0">
+          <i id="play-button"class="material-icons play-pause text-primary mr-2" aria-hidden="true">play_circle_outline</i>
+          <i id="pause-button"class="material-icons play-pause d-none text-primary mr-2" aria-hidden="true">pause_circle_outline</i>
+          <i id="next-button"class="material-icons text-primary ml-2 mr-3" aria-hidden="true">skip_next</i>
+          <div class="col ml-auto rounded-circle border border-primary p-1">
+            <img id="thumbnail" class="img-fluid rounded-circle" src="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u" alt="">
+          </div>
+        </div>
+        <div class="p-0 m-0" id="now-playing">
+          <p class="font-italic mb-0">Now Playing: </p>
+          <p class="lead" id="title"></p>
+        </div>
+        <div class="progress-bar progress col-12 mb-3">
+        </div>
+      </div>
+      <ul class="playlist list-group list-group-flush">
+        <li audio_url="https://drive.google.com/uc?id=1Iq_1Hpm8SYJ8f6ls9pXUabPEZcTJIj7B"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="active list-group-item playlist-item">
+        You & Me</li>
+        <li audio_url="https://drive.google.com/uc?id=1wYgPrZy6VkL6YhnMTV83OR76FJBRfVQ2"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Ye Dil Aasiqaana</li>
+        <li audio_url="https://drive.google.com/uc?id=1wBfVlmHZg6clPYaoyuikAyYou7r95X84"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Mohabbat Dil Ka Sukoon</li>
+        <li audio_url="https://drive.google.com/uc?id=1uj2FgqT2iryr60yQgOh4BzOs5E7KUoIj"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Utha Le Jaaunga</li>
+        <li audio_url="https://drive.google.com/uc?id=1viAkOJ3bCL0rPyTk46OPNfb0BIMUakRH"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Kuchh To Bata</li>
+        <li audio_url="https://drive.google.com/uc?id=1bsMyaPhckeNdE0dI74IYjY_3RDW-_44q"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Manzar</li>
+        <li audio_url="https://drive.google.com/uc?id=11DOprb909pTQlKtTsM_VXJBsUXYo5MkN"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Meri Zindgi Mei</li>
+        <li audio_url="https://drive.google.com/uc?id=18dxkNALS-6u0gC04sEzRebV4l1-2ynUj"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Challa</li>
+        <li audio_url="https://drive.google.com/uc?id=1BrmofimnOoh3x3T2CtF7A-S74yibljbA"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Tera Ban Jaaunga</li>
+        <li audio_url="https://drive.google.com/uc?id=1g9l3iXBcChkaoGt_xaAuciJT32929JcH"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Saadi Gali Aaja</li>
+        <li audio_url="https://drive.google.com/uc?id=195Dml5ny6u6SrymTq_g6CXKzgH3WcC35"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Mera Babu Chhail Chhabila</li>
+        <li audio_url="https://drive.google.com/uc?id=1uS_4Av8VavSZeH9UUiZwQaronjgwU0i2"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Moahabbat Naam Hai Kiska</li>
+        <li audio_url="https://drive.google.com/uc?id=1B5IkPFi2M9lz2xTGZislacfwQj4b8QEH"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Jee Le Jara</li>
+        <li audio_url="https://drive.google.com/uc?id=1E9LOi2343H5r9sSRw12gekhHwM5jMHmL"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Tu Meri Mei Tera</li>
+        <li audio_url="https://drive.google.com/uc?id=1I9dI0057DuALsXhsG2u9SyUuYw1q1BZo"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Chale Aana</li>
+        <li audio_url="https://drive.google.com/uc?id=1M1Vn7-NeG97t0v2PhuGq1blWhjyASv1u"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tu Jo Nahi Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=1mf0Fv-8tzP_LQ3SOwRYjfAOXMDUA67VX"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Soofi Tere Pyar Mei</li>
+        <li audio_url="https://drive.google.com/uc?id=1cEGPNuqhalENZchu_lIUzDxWZgf2z2zm"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Soniyo</li>
+        <li audio_url="https://drive.google.com/uc?id=14OzkPWCM7VWZNYTmcRRyNyNjji6KsPeY"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tum Mile</li>
+        <li audio_url="https://drive.google.com/uc?id=16qZuvKJrxTblTn8fYsDyXSL4irVOH51K"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tujhe Sochta Hoon</li>
+        <li audio_url="https://drive.google.com/uc?id=15wxprf69RMTc3QzEfcE6DSOXwmdjoFjO"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Hua Hai Aaj Pahali Baar</li>
+        <li audio_url="https://drive.google.com/uc?id=1Udj8vc5JBHndheZrHOirxFSsNaqIiLWn"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tu Hi Meri Sab Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=1Om8BF_-G62brB24E1-WWkkhA1XA_0ndG"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Maahi</li>
+        <li audio_url="https://drive.google.com/uc?id=125zV-ihc2oG1vyU8n50EVEcSE1NmQNgY"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        O Jaana</li>
+        <li audio_url="https://drive.google.com/uc?id=1yBXQsuEy93ZbsnXApYFz2QtqukSYRzI8"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Lambi Judai</li>
+        <li audio_url="https://drive.google.com/uc?id=11IxQT-dMQlUYbjCRoPzEIqoVyQ4NFbg_"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Haa Tu Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=1ChhPvChuTc-44sXVQB4P7CKaHhgYWpN4"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Haale Dil</li>
+        <li audio_url="https://drive.google.com/uc?id=17I4DRdyIzJywsoNyCvl0JEcjhZ3q9YWx"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Dil Ibadat Kar Raha Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=1NovYytcOufBVS-2NQpKGst2LdFsy9cEs"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tera Mera Rishta</li>
+        <li audio_url="https://drive.google.com/uc?id=1bdQlLFZD7r0midcuPofSE473PZirgJIA"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Toh Phir Aao</li>
+        <li audio_url="https://drive.google.com/uc?id=1E7sCmGpOFl1RIZaJ2hiqEoVp9fxHCTbd"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Woh Ajnabi</li>
+        <li audio_url="https://drive.google.com/uc?id=1Sf3d19tu65ZQdL_Xte9cB40uqNDsx1Dg"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Beete Lamhe</li>
+        <li audio_url="https://drive.google.com/uc?id=14BSO9wh6oeYFHjZD8_Be2yK8Uxky83t3"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Mausam</li>
+        <li audio_url="https://drive.google.com/uc?id=1szjamDGfVGfkdCQU3c52I8fjb-YS0Y7u"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tera Chahara</li>
+        <li audio_url="https://drive.google.com/uc?id=1fL2SOayHqueYOCbIQCQCOd-GTEJEde3j"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Aadat</li>
+        <li audio_url="https://drive.google.com/uc?id=1YZSSsquGbuaLuAu5WldqnFnENV3fzsTm"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Kya Mujhe Pyar Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=1fp62cKmDRLaH7bs2-LglsRJQSNNbR6xT"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Teri Yaadon Me</li>
+        <li audio_url="https://drive.google.com/uc?id=14eCcyTJ5aNJuGY_U2vlWzliP6lVS01j2"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Agar Tum Mil Jaao</li>
+        <li audio_url="https://drive.google.com/uc?id=1BILRzpk-GAAM_pv8GWCwbWIZuJJPyhBL"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Aye Bekhabar</li>
+        <li audio_url="https://drive.google.com/uc?id=1GiEw3FFIeGPlLbXi0ge6JxbmQLOjpZLH"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Zara Sa</li>
+        <li audio_url="https://drive.google.com/uc?id=1fAzsorP-QU3GAcrgDQMGPke7FNhoxU-C"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Wo Lamhe Wo Baatein</li>
+        <li audio_url="https://drive.google.com/uc?id=1wt2Gp7Q_mPG56nZbUMEaNnOpcUsfcYc7"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Yaa Aali</li>
+        <li audio_url="https://drive.google.com/uc?id=1PgVPfA5TVwllqHsUVr0UWcnKuhGHl7Iw"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Kaisa Ye Raaz Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=12W6b5_nnCi6-pcpHOKCVefWKy1ukw-Hr"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Oh Hamsafar</li>
+        <li audio_url="https://drive.google.com/uc?id=1ldBHbHMgEOUted09nSwcdC5hjF70ez_n"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Mile Ho Tum Hamko</li>
+        <li audio_url="https://drive.google.com/uc?id=1PM1_DFQIAueTSqjhJYtaEHqUcT3-FHrZ"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Teri Galiyan</li>
+        <li audio_url="https://drive.google.com/uc?id=1O4rrYpWgR9cP3T87pp7tPlUpdgVdYzCu"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Pal</li>
+        <li audio_url="https://drive.google.com/uc?id=1dxqGBP9BIxlnIu_C8B6d0grxwHKgzj6n"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Enna Sona</li>
+        <li audio_url="https://drive.google.com/uc?id=1TYEKuNSDQt6ipIxfQ0v8IKe6fwUQo1mm"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tum Hi Aana</li>
+        <li audio_url="https://drive.google.com/uc?id=1MSWxB38SVhRg0L7uFhtXAw2qgGm7zN-q"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Chal Waha Jaate Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=1A3Yia4_SOP8zoOXUfsxqVPtmy_XknX7f"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        GF BF</li>
+        <li audio_url="https://drive.google.com/uc?id=1bvOA-xK7X6BIq60qlJuMXNVWvAtFVry0"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Bekhyaali</li>
+        <li audio_url="https://drive.google.com/uc?id=1Icl3cRqKqeIm7K1vH3ifsVPjJ6FjQhro"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Mann Mera</li>
+        <li audio_url="https://drive.google.com/uc?id=1fZ95KTyTEcrqLH_7E4GbNl963XxZf5vT"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Mileya Mileya</li>
+        <li audio_url="https://drive.google.com/uc?id=1Un6weW6cfy9VHZy3Jr2sjf8UAbF16cJI"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Jeena Jeena</li>
+        <li audio_url="https://drive.google.com/uc?id=1DWOjmTI8vZkFbf18ZSt-qWRlgdrkhzNM"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Gal Mitthi Mitthi Bol</li>
+        <li audio_url="https://drive.google.com/uc?id=1SWFOhDDZrz5CaWzDnC2g_Ph2vkmSA-OY"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Toota Jo Kabhi Taara</li>
+        <li audio_url="https://drive.google.com/uc?id=15pUecA3uwTGqArwb7WBGvZcEoljexkEd"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Khaali Khaali Dil</li>
+        <li audio_url="https://drive.google.com/uc?id=172sZftHpRpsaGD5yhlA4XRbydLohI5hr"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Pyar Impossible</li>
+        <li audio_url="https://drive.google.com/uc?id=16PZt5VZBFswZcITA2RpD1PBsCqqx4RlF"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Ho Nahi Sakta</li>
+        <li audio_url="https://drive.google.com/uc?id=1rBCKLR-epmI3gNPxWc-DB9uTfH5qukzt"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Meri Duniya Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=1a6jO65ck3P0A63muAJ0C7qnXixQlm7yK"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u"
+        class="list-group-item playlist-item">
+        Kitna Haseen Chehra</li>
+        <li audio_url="https://drive.google.com/uc?id=1Xu5p-M70qDsZ1aa2OlGV4KFjc47JSVA6"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Mouka Milenga To Hum</li>
+        <li audio_url="https://drive.google.com/uc?id=1S2tcPi82SSu5r97Hltxaa2nBEK5qbcoy"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Saaton Janam Main Tere</li>
+        <li audio_url="https://drive.google.com/uc?id=1E90RusW_B_2YRLc-GNq1D8peAs5P-EzI"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Meine Pyar Tumhi Se</li>
+        <li audio_url="https://drive.google.com/uc?id=12jIPvhSOUnxihkCZ5VdHOIzeJGFnwhil"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Jaan O Meri Jaan</li>
+        <li audio_url="https://drive.google.com/uc?id=1WfnxMOEaU8ka4v77fMhRNbqN4qI-QTxL"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Yaara O Yaara</li>
+        <li audio_url="https://drive.google.com/uc?id=11gfGWVCk49_M0WbD6K1ERBDwWzbRtbTj"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tu Dharti Pe Chahe Jaha</li>
+        <li audio_url="https://drive.google.com/uc?id=1DvY8DK9NvZk8HPn2Mt3OWEWY8pVtJX0l"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Saanson Ka Chalna</li>
+        <li audio_url="https://drive.google.com/uc?id=1mzgwELq65xc26QNGRempX_gM6BdXtO05"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Kisi Din Banoongi</li>
+        <li audio_url="https://drive.google.com/uc?id=1lulvWM-OUtURfIAJsDo17r6Idh14A8fs"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Ankhiya Milau Kabhi</li>
+        <li audio_url="https://drive.google.com/uc?id=1j6Kk6oCD-WVdebT7QVHehckuqikW5Okh"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Phool Maangu Naa</li>
+        <li audio_url="https://drive.google.com/uc?id=1QVyN4xoZ4LyJF-vkqWsUIKpRHU1DUa0Y"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tumsa Koi Pyara</li>
+        <li audio_url="https://drive.google.com/uc?id=17xlqn3qZglCw1_NHWXFVqWnX7Fh5_-Q3"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Mousam Ki Tarah Tum</li>
+        <li audio_url="https://drive.google.com/uc?id=13OZ0KcD1ACI-uLO46GsYJHj-D_kcjg7L"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Kasam Se</li>
+        <li audio_url="https://drive.google.com/uc?id=1sglNrQmLe_qJTO56ZeD-JGd4TxVPocBN"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Aankhon Me Base Ho Tum</li>
+        <li audio_url="https://drive.google.com/uc?id=1AoL10NSHySFb48wNfhDz5DrT_E2IAX4x"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Teri Aankhon Mei Mujhe</li>
+        <li audio_url="https://drive.google.com/uc?id=1tcxbwNVnMgPAPwTxwPp8IpeZpWDHtt5P"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Chhaya Hai Jo</li>
+        <li audio_url="https://drive.google.com/uc?id=1c1x9R77YZIq2iUodVrcI658b_-nh65PV"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Dil Hai Tumhara</li>
+        <li audio_url="https://drive.google.com/uc?id=1_RgZH6WoWSnUz959g7Dx7UkxoYZcnIRD"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Kasam Khaake Kaho</li>
+        <li audio_url="https://drive.google.com/uc?id=1pqgY392rpwFrDCnpn4LvKGswLTQhU1aq"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Maasoom Chehara</li>
+        <li audio_url="https://drive.google.com/uc?id=1jVXGxMsaYEzHI4htfYORUOYyAv2yAnzC"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Chhamiya</li>
+        <li audio_url="https://drive.google.com/uc?id=1kPV9mgXb5Or1zaFL6CjFGlhq7iK6Pj-8"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Dheere Dheere Chalna</li>
+        <li audio_url="https://drive.google.com/uc?id=1f4mqulidjMpExcz_xeWiyQgtG09KAGWB"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Dulhan Ham Le Jaaenge</li>
+        <li audio_url="https://drive.google.com/uc?id=1wTCjn-J192XHGUPkzPryw0JSoRWG1YTW"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Mujhse Shaadi Karogi</li>
+        <li audio_url="https://drive.google.com/uc?id=1_5t5crXYjzIjaW3CVOlZUzeGVj2Zdx8B"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        O Mr. Raja</li>
+        <li audio_url="https://drive.google.com/uc?id=1xf8JewJTefxnbWeUpuNdrww2W5Vggn4s"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Pyar Dilon Ka Mela Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=1332hrTusQpL_NCzK3xVhmhsvVqhCFOwf"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tera Pallu Sarka Jaae</li>
+        <li audio_url="https://drive.google.com/uc?id=1tKhuDhA3jNsRjHmNVXmFNCrP-pgkiCWr"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Chal Pyar Kare</li>
+        <li audio_url="https://drive.google.com/uc?id=1FhVVXFMga7Fkz0_q1vlEmcevSb9wwM3w"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        O Jaana</li>
+        <li audio_url="https://drive.google.com/uc?id=1Mt-X_BDULoByVzkSFgVtrkxSlenHnIjU"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Pahali Pahali Baar</li>
+        <li audio_url="https://drive.google.com/uc?id=1PWOCCBmii4kGMgXSGAPbkcGNJ2QP2Xoy"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Mei Akela</li>
+        <li audio_url="https://drive.google.com/uc?id=1mV8c0hKhaMR_OoV9HAUFr9wBlEdZdvH_"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Ishq Mei</li>
+        <li audio_url="https://drive.google.com/uc?id=19WyNgNpg30Kbma1khElcBTGjJXe_XvZO"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Akeli Na Baazar Jaya Karo</li>
+        <li audio_url="https://drive.google.com/uc?id=1jZRLG8GrGIx437tQOVeAyK02ju5B0aNO"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Ajnabhi Mujhko Itna</li>
+        <li audio_url="https://drive.google.com/uc?id=1NBACpuEJs0gKRQyeN-Qrnlct--d9t8Ut"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Ab Tere Bin</li>
+        <li audio_url="https://drive.google.com/uc?id=1_s9xdKuuntvihDW_ronIPR4ehij0IlP6"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Aaine Ke Sou Tukde</li>
+        <li audio_url="https://drive.google.com/uc?id=1Rg-888dod18d_oOC35XJapzb2TnyLsd1"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Aankha Hai Bhari Bhari</li>
+        <li audio_url="https://drive.google.com/uc?id=1g6QWjnHxR2gBd1g7j9h7POl5dFYZiTGN"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Aate Jaate Jo Milta Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=1PksoGyQH8hYs1FJZCGsZAfp7AEhYzD51"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Is Tarah Aasiqi Ka</li>
+        <li audio_url="https://drive.google.com/uc?id=1cabnBvqaL6RwSHl7_V3vb6yFVjOK_Ln8"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Aye Dil Laaya Hai Bahaar</li>
+        <li audio_url="https://drive.google.com/uc?id=1qjUxwX_XLqxsePayPT2GBDL-YWbMCB4e"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Ek Mulaakaat Jaroori</li>
+        <li audio_url="https://drive.google.com/uc?id=1TXJKUdH5fEoYW9dd1apPwx2gAG5HeAqM"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Ek Sanam Chahiye</li>
+        <li audio_url="https://drive.google.com/uc?id=1Z6p_MCFZa_5znROx671D6Qj10l_lAx0V"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Aye Mere Hamsafar</li>
+        <li audio_url="https://drive.google.com/uc?id=1kfrZn3ATFBmd2vzSF1vySVTMucYM-8Zp"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        O Jaana</li>
+        <li audio_url="https://drive.google.com/uc?id=15hNqbOSCwpKK1w0Xwd_NZvumXW1lqSBL"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        O... Jaane Jigar</li>
+        <li audio_url="https://drive.google.com/uc?id=1vU660JPGWsCSE-kDmDzAsREzOYOQrIek"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        O Dil Todke Hasti Ho</li>
+        <li audio_url="https://drive.google.com/uc?id=19r1hRXZA2fHB3OV580bkFbPY50uSw0IT"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        O Saathiya O Beliya</li>
+        <li audio_url="https://drive.google.com/uc?id=1qGwkCOtTNo0GVjIaFWuWz6YeY4AmrR5F"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Odh Li Chunariya</li>
+        <li audio_url="https://drive.google.com/uc?id=1ILEOrqgi2m9DL-ylO5-yh6FS9bobsmk0"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Kaho Na Kaho</li>
+        <li audio_url="https://drive.google.com/uc?id=1S7-7ils7ShhzTAiLcE9lZYnJ47JnSzd1"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Kash Kahi Esa Hota</li>
+        <li audio_url="https://drive.google.com/uc?id=1_250qu09SqMvDDjBGCuB2rPzozWV7V4t"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Kthni Bechain Hoke</li>
+        <li audio_url="https://drive.google.com/uc?id=1crtYVGYs6khe-rtWrLpZiwEheVAVeiKP"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Koi Jaane Koi Na Jaane</li>
+        <li audio_url="https://drive.google.com/uc?id=1jnaB0ucQW2eugFce2a-oYCj7LwYRtAFW"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Kya Hua Tujhe</li>
+        <li audio_url="https://drive.google.com/uc?id=1QE8PBtSX0Uc05hY49S0vVZ5HX1dqNb2e"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Chaand Taare Phool Sabnam</li>
+        <li audio_url="https://drive.google.com/uc?id=1I1FIr0FyV4xNvQT3tP0MbxeBJFIH_T9W"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Chaand Se Parta Keejiye</li>
+        <li audio_url="https://drive.google.com/uc?id=1OfONDbgrGciVSfiXsPdANB_2R5Dghsk8"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Chupke Se Koi Aaega</li>
+        <li audio_url="https://drive.google.com/uc?id=1lplcGZZROTP2b8f-m-BdyZ52E_0l4dH8"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Churake Dil Mera</li>
+        <li audio_url="https://drive.google.com/uc?id=1-H2hjfiNR7AH5MaEv-Z628CApGTmHDoJ"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Chori Chori Dil Tera</li>
+        <li audio_url="https://drive.google.com/uc?id=1ztD43u4Py41mhVQgCG0kz-8v5Xt8Br1H"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Jab Kisi Ki Taraf Dil</li>
+        <li audio_url="https://drive.google.com/uc?id=1_BJiSC0NcF4IU5WNVGYX2cilWL7t778x"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Ole Ole</li>
+        <li audio_url="https://drive.google.com/uc?id=1H4HARP_YaefvHg7YtjanBD4VtMnpevBZ"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tere Liye</li>
+        <li audio_url="https://drive.google.com/uc?id=1TB9YxRKaRzC57QSNCom9MeHw2eGB34rg"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Jaane Jigar Jaaneman</li>
+        <li audio_url="https://drive.google.com/uc?id=14LfU8TEAcgizJbQSWgz-eNu_LPoAI7T-"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Jaane Bahaara Jaane Tamanna</li>
+        <li audio_url="https://drive.google.com/uc?id=1lmAvuiv3oZF8DbUJ2YDuhTzH49z25dpJ"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Jaam Wo Hai Jo</li>
+        <li audio_url="https://drive.google.com/uc?id=1JaGHauNXOFxAmf_R6ZLj4zDLxP73suIQ"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Jo Bhi Kasme</li>
+        <li audio_url="https://drive.google.com/uc?id=1pN09iOVhrS5dzScmlaMtYa3RU9iP7FMj"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Jo Meri Rooh Ko</li>
+        <li audio_url="https://drive.google.com/uc?id=1joSgdVflVZhsKAK01dJHZDTzKXR1CmtV"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Jo Haal Dil Kaa</li>
+        <li audio_url="https://drive.google.com/uc?id=1tpHZGc5Ev4ZkeizF4EwQ-xgpRoreX0ps"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tip Tip Barsa Paani</li>
+        <li audio_url="https://drive.google.com/uc?id=11whz6uyApEhrzev3VqbJsCwOq04chu9N"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tumsa Koi Pyara</li>
+        <li audio_url="https://drive.google.com/uc?id=16nArSuAWYqhIqiilI0d2q_lMWpcHBeiD"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tumse Milne Ko Dil Karta Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=1Vp43kOH-9LyQqHLBZTGvnix4IukcJryR"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tu Cheez Badi Hai Mast</li>
+        <li audio_url="https://drive.google.com/uc?id=123dXjNkKmzIQZs_Kr_ehXdciEv4de22g"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tu Jo Hans Hans Ke</li>
+        <li audio_url="https://drive.google.com/uc?id=1DaQJPjvsniFlMJXg3C6tb4sbrQ574eBX"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tu Pyar Hai Kisi Aur Ka</li>
+        <li audio_url="https://drive.google.com/uc?id=1ENc0H3fM9z7Wx8jKHwxwJ8WdzLl6S9YR"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tu Meri Zindgi Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=1ziOpAJWmcnpXfmvkdH-tEjd9IXGTJFTb"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tu Shayar Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=1HJ5HiGNkE5JNobqvGL3fii2hPKuUYZyQ"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tu Hi To Meri Dost Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=14gw-oJfIBwany4fAmHkq7d_EE95buKRD"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Teri Aankhon Mei Mujhe</li>
+        <li audio_url="https://drive.google.com/uc?id=1GwB8lGAM-Yt5d5uVlJ_tfsc0kojhegOE"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Teri Chunariya</li>
+        <li audio_url="https://drive.google.com/uc?id=1pSW9ZV5FLYHzjeE1Sz1OTvMzdQXa9Fxf"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Teri Mohabbat Nei</li>
+        <li audio_url="https://drive.google.com/uc?id=1QEEoJUCGUtuMF-NUbmJgORYPpvhi06VH"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Tere Bin Mei</li>
+        <li audio_url="https://drive.google.com/uc?id=1nfH7VjIAipclBYC4F1uKv7GIn1S3ACgi"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Dil Kahata Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=1HqlRm8OoEz_IujxdoWHuB5njpIb0Flm0"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Dil Ka Aalam</li>
+        <li audio_url="https://drive.google.com/uc?id=1d9hoQfDZFs1292nEqOxcWOTGnCtX-C-i"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Dil Gaya</li>
+        <li audio_url="https://drive.google.com/uc?id=1t0HQWYxBjcqTLNzy-_jKf1eVbFam6Fy8"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Dil Cheer Ke Dekh</li>
+        <li audio_url="https://drive.google.com/uc?id=1A3OCJiSghDhA-7oqo9-1MZXzgXPdT4Hg"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Dil Mei Dard Sa</li>
+        <li audio_url="https://drive.google.com/uc?id=1TnFvSpJGWo6HkqUiZxB68F4l8Z7NnVYb"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Dil Mera Tod Diya Usne</li>
+        <li audio_url="https://drive.google.com/uc?id=1tjU58066aWKuO8pGsO-qyh63VWxpA3k6"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Dil Leke Yaar Dil Diya</li>
+        <li audio_url="https://drive.google.com/uc?id=1LD_dW1VLEMRieslVa895D6WYZ0a61hjo"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Diwaana Mei Tera</li>
+        <li audio_url="https://drive.google.com/uc?id=1bsFGURxQTFaf49zt1qqcohnChoojEeqa"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Duniya Mei Aaye Ho To</li>
+        <li audio_url="https://drive.google.com/uc?id=1u40R1g0T_sos_sIlW6jZHSuJ9XqXAppq"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Dekha Jo Tumko</li>
+        <li audio_url="https://drive.google.com/uc?id=1vdNJpayT5Bnlw6JDu4tjZFNv_R6bpyt1"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Dekha Hai Pahali Baar</li>
+        <li audio_url="https://drive.google.com/uc?id=1PpqQys-Rg0cNvE5LdptCGe78MlB7tZVo"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Do Baaten Ho Sakti Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=1YsPcwLtmfqp_GLFq2nhzCdcOeD4wS0SD"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Dheere Dheere Se</li>
+        <li audio_url="https://drive.google.com/uc?id=1XOa7SWVSEty1tUd9yGinK_shGvzxjr3f"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Nazar Ke Saamne</li>
+        <li audio_url="https://drive.google.com/uc?id=1ZbhiAXxEnxA19153bEWkRWR8Kx4UsJ9R"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Naa Milo Hamse Jyada</li>
+        <li audio_url="https://drive.google.com/uc?id=1F0lYizM3qs22teXbk8m7QhbVu-3IUa3Q"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Paas Wo Aane Lage</li>
+        <li audio_url="https://drive.google.com/uc?id=1A7JOJt6DxQ6-LTSiBiYs4uIDkVYi-ByO"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Pyar To Hona Hi Tha</li>
+        <li audio_url="https://drive.google.com/uc?id=1bh9CO7PoQMaaj9SnOy6zXRKpndzkqcXg"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Bole Choodiyan</li>
+        <li audio_url="https://drive.google.com/uc?id=1HKM6IFetEBRDBfr7L_0Ft9fSAuG94auH"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Bole Mera Kangna</li>
+        <li audio_url="https://drive.google.com/uc?id=1xmFjfnqk-FjZmLz6qu_PDoC_35a9POtv"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Mat Poochh Mere Mahboob</li>
+        <li audio_url="https://drive.google.com/uc?id=1nwy5dT7s_KMOf6i4Z0PGYFjewwf2A6BM"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Mastaana Mousam Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=1IYcs-PxfEIWlftBEQU0JYD6kZW2Ftc6O"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Mujhe Neend Naa Aae</li>
+        <li audio_url="https://drive.google.com/uc?id=1vbQwKkJf6bolN9p3ss22LEIXG-VS1VB_"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Mei Duniya Bhulaadunga</li>
+        <li audio_url="https://drive.google.com/uc?id=1eikmOiLrflZCHKyOzWKpreCeZ6ARtToQ"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Mera Sona Sajan Ghar Aaya</li>
+        <li audio_url="https://drive.google.com/uc?id=1f1yfP5a0qJCrOeHuYllsAp7iFjR4GdrJ"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Mere Khwabon Mei Tum</li>
+        <li audio_url="https://drive.google.com/uc?id=1wb20V4ktnZCPomPoeH4WzJcCWSJ3EKVI"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Yaad Sataye Meri</li>
+        <li audio_url="https://drive.google.com/uc?id=1ZGegLSoR-8YG8GZY9rX4lCuFZEwUfGjM"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Yu Tera Mera Milna</li>
+        <li audio_url="https://drive.google.com/uc?id=1D9Ohhq6itofPjdlc3NKai1Cwgi0J0COY"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Ye Un Dino Ki Baat Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=1-I1VdeyiFrqArS4UwQvPdhFXs35_JOS6"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Ye Dil Aashiqaana</li>
+        <li audio_url="https://drive.google.com/uc?id=1pWo1ntSZbhzMO6MefyEnqqBK8504aq7d"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Ye Dua Hai Meri Rab Se</li>
+        <li audio_url="https://drive.google.com/uc?id=1nl_yeN-pSiJ5eNp6nPrtHsGN1MqSZkEe"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Ye Silsila Hai</li>
+        <li audio_url="https://drive.google.com/uc?id=1tZvnNeina3M0nlSm8U4iRMlvuO30yFTA"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Rag Rag Mei Is Tarah</li>
+        <li audio_url="https://drive.google.com/uc?id=1Gz_-9aWgN4NJKJ1eT8NhpNKWEZs_8Bnj"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Raah Mei Unse</li>
+        <li audio_url="https://drive.google.com/uc?id=13iPB1LqXcYibPogSPm_IJ5w6J5Lg4elI"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Wafa Naa Raas Aayi</li>
+        <li audio_url="https://drive.google.com/uc?id=1x5FSbYRKoDX44GTTU-SjMrA6g2l8l5Ae"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Saathiya Saathiya</li>
+        <li audio_url="https://drive.google.com/uc?id=1BbMTpGsZWY_SRN3yVLNOR-s2B-4Y19Ug"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Ham Tumko</li>
+        <li audio_url="https://drive.google.com/uc?id=1RfNWaHHGl_YoQBxgXW7L-Lsc6Bp8AUu2"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Har Dil Jo Pyar Karega</li>
+        <li audio_url="https://drive.google.com/uc?id=1oC2btJiqzGSW274yq19UVY7NqzqakzDt"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Haay Mera Dil</li>
+        <li audio_url="https://drive.google.com/uc?id=1_EJniYQ75hQlZ6WoesDJP_SzSz6XgwMI"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Jaati Hu Mei</li>
+        <li audio_url="https://drive.google.com/uc?id=1P5EFtwchYAVsjgey-P_IjJRy8vrJcwbN"
+        class="list-group-item playlist-item"
+        img_url="https://drive.google.com/uc?id=1PAfqfYmVyGApw2lBMSu6cexh2n8PRK5u">
+        Dheere Dheere Aap Mere</li>
+      </ul>
+      <!-- <div class="card-body">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div> -->
+  </div>
+  <audio id="audio-player" class="d-none" src="" type="audio/mp3" controls="controls"></audio>
+</section>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
+<script src="js/jquery-ui-slider.js" charset="utf-8"></script>
+<script src="js/audioPlayer.js" charset="utf-8"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+/*! jQuery UI - v1.12.1 - 2017-11-11
+* http://jqueryui.com
+* Includes: widget.js, keycode.js, widgets/mouse.js, widgets/slider.js
+* Copyright jQuery Foundation and other contributors; Licensed MIT */
+
+(function( factory ) {
+	if ( typeof define === "function" && define.amd ) {
+
+		// AMD. Register as an anonymous module.
+		define([ "jquery" ], factory );
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+}(function( $ ) {
+
+$.ui = $.ui || {};
+
+var version = $.ui.version = "1.12.1";
+
+
+/*!
+ * jQuery UI Widget 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Widget
+//>>group: Core
+//>>description: Provides a factory for creating stateful widgets with a common API.
+//>>docs: http://api.jqueryui.com/jQuery.widget/
+//>>demos: http://jqueryui.com/widget/
+
+
+
+var widgetUuid = 0;
+var widgetSlice = Array.prototype.slice;
+
+$.cleanData = ( function( orig ) {
+	return function( elems ) {
+		var events, elem, i;
+		for ( i = 0; ( elem = elems[ i ] ) != null; i++ ) {
+			try {
+
+				// Only trigger remove when necessary to save time
+				events = $._data( elem, "events" );
+				if ( events && events.remove ) {
+					$( elem ).triggerHandler( "remove" );
+				}
+
+			// Http://bugs.jquery.com/ticket/8235
+			} catch ( e ) {}
+		}
+		orig( elems );
+	};
+} )( $.cleanData );
+
+$.widget = function( name, base, prototype ) {
+	var existingConstructor, constructor, basePrototype;
+
+	// ProxiedPrototype allows the provided prototype to remain unmodified
+	// so that it can be used as a mixin for multiple widgets (#8876)
+	var proxiedPrototype = {};
+
+	var namespace = name.split( "." )[ 0 ];
+	name = name.split( "." )[ 1 ];
+	var fullName = namespace + "-" + name;
+
+	if ( !prototype ) {
+		prototype = base;
+		base = $.Widget;
+	}
+
+	if ( $.isArray( prototype ) ) {
+		prototype = $.extend.apply( null, [ {} ].concat( prototype ) );
+	}
+
+	// Create selector for plugin
+	$.expr[ ":" ][ fullName.toLowerCase() ] = function( elem ) {
+		return !!$.data( elem, fullName );
+	};
+
+	$[ namespace ] = $[ namespace ] || {};
+	existingConstructor = $[ namespace ][ name ];
+	constructor = $[ namespace ][ name ] = function( options, element ) {
+
+		// Allow instantiation without "new" keyword
+		if ( !this._createWidget ) {
+			return new constructor( options, element );
+		}
+
+		// Allow instantiation without initializing for simple inheritance
+		// must use "new" keyword (the code above always passes args)
+		if ( arguments.length ) {
+			this._createWidget( options, element );
+		}
+	};
+
+	// Extend with the existing constructor to carry over any static properties
+	$.extend( constructor, existingConstructor, {
+		version: prototype.version,
+
+		// Copy the object used to create the prototype in case we need to
+		// redefine the widget later
+		_proto: $.extend( {}, prototype ),
+
+		// Track widgets that inherit from this widget in case this widget is
+		// redefined after a widget inherits from it
+		_childConstructors: []
+	} );
+
+	basePrototype = new base();
+
+	// We need to make the options hash a property directly on the new instance
+	// otherwise we'll modify the options hash on the prototype that we're
+	// inheriting from
+	basePrototype.options = $.widget.extend( {}, basePrototype.options );
+	$.each( prototype, function( prop, value ) {
+		if ( !$.isFunction( value ) ) {
+			proxiedPrototype[ prop ] = value;
+			return;
+		}
+		proxiedPrototype[ prop ] = ( function() {
+			function _super() {
+				return base.prototype[ prop ].apply( this, arguments );
+			}
+
+			function _superApply( args ) {
+				return base.prototype[ prop ].apply( this, args );
+			}
+
+			return function() {
+				var __super = this._super;
+				var __superApply = this._superApply;
+				var returnValue;
+
+				this._super = _super;
+				this._superApply = _superApply;
+
+				returnValue = value.apply( this, arguments );
+
+				this._super = __super;
+				this._superApply = __superApply;
+
+				return returnValue;
+			};
+		} )();
+	} );
+	constructor.prototype = $.widget.extend( basePrototype, {
+
+		// TODO: remove support for widgetEventPrefix
+		// always use the name + a colon as the prefix, e.g., draggable:start
+		// don't prefix for widgets that aren't DOM-based
+		widgetEventPrefix: existingConstructor ? ( basePrototype.widgetEventPrefix || name ) : name
+	}, proxiedPrototype, {
+		constructor: constructor,
+		namespace: namespace,
+		widgetName: name,
+		widgetFullName: fullName
+	} );
+
+	// If this widget is being redefined then we need to find all widgets that
+	// are inheriting from it and redefine all of them so that they inherit from
+	// the new version of this widget. We're essentially trying to replace one
+	// level in the prototype chain.
+	if ( existingConstructor ) {
+		$.each( existingConstructor._childConstructors, function( i, child ) {
+			var childPrototype = child.prototype;
+
+			// Redefine the child widget using the same prototype that was
+			// originally used, but inherit from the new version of the base
+			$.widget( childPrototype.namespace + "." + childPrototype.widgetName, constructor,
+				child._proto );
+		} );
+
+		// Remove the list of existing child constructors from the old constructor
+		// so the old child constructors can be garbage collected
+		delete existingConstructor._childConstructors;
+	} else {
+		base._childConstructors.push( constructor );
+	}
+
+	$.widget.bridge( name, constructor );
+
+	return constructor;
+};
+
+$.widget.extend = function( target ) {
+	var input = widgetSlice.call( arguments, 1 );
+	var inputIndex = 0;
+	var inputLength = input.length;
+	var key;
+	var value;
+
+	for ( ; inputIndex < inputLength; inputIndex++ ) {
+		for ( key in input[ inputIndex ] ) {
+			value = input[ inputIndex ][ key ];
+			if ( input[ inputIndex ].hasOwnProperty( key ) && value !== undefined ) {
+
+				// Clone objects
+				if ( $.isPlainObject( value ) ) {
+					target[ key ] = $.isPlainObject( target[ key ] ) ?
+						$.widget.extend( {}, target[ key ], value ) :
+
+						// Don't extend strings, arrays, etc. with objects
+						$.widget.extend( {}, value );
+
+				// Copy everything else by reference
+				} else {
+					target[ key ] = value;
+				}
+			}
+		}
+	}
+	return target;
+};
+
+$.widget.bridge = function( name, object ) {
+	var fullName = object.prototype.widgetFullName || name;
+	$.fn[ name ] = function( options ) {
+		var isMethodCall = typeof options === "string";
+		var args = widgetSlice.call( arguments, 1 );
+		var returnValue = this;
+
+		if ( isMethodCall ) {
+
+			// If this is an empty collection, we need to have the instance method
+			// return undefined instead of the jQuery instance
+			if ( !this.length && options === "instance" ) {
+				returnValue = undefined;
+			} else {
+				this.each( function() {
+					var methodValue;
+					var instance = $.data( this, fullName );
+
+					if ( options === "instance" ) {
+						returnValue = instance;
+						return false;
+					}
+
+					if ( !instance ) {
+						return $.error( "cannot call methods on " + name +
+							" prior to initialization; " +
+							"attempted to call method '" + options + "'" );
+					}
+
+					if ( !$.isFunction( instance[ options ] ) || options.charAt( 0 ) === "_" ) {
+						return $.error( "no such method '" + options + "' for " + name +
+							" widget instance" );
+					}
+
+					methodValue = instance[ options ].apply( instance, args );
+
+					if ( methodValue !== instance && methodValue !== undefined ) {
+						returnValue = methodValue && methodValue.jquery ?
+							returnValue.pushStack( methodValue.get() ) :
+							methodValue;
+						return false;
+					}
+				} );
+			}
+		} else {
+
+			// Allow multiple hashes to be passed on init
+			if ( args.length ) {
+				options = $.widget.extend.apply( null, [ options ].concat( args ) );
+			}
+
+			this.each( function() {
+				var instance = $.data( this, fullName );
+				if ( instance ) {
+					instance.option( options || {} );
+					if ( instance._init ) {
+						instance._init();
+					}
+				} else {
+					$.data( this, fullName, new object( options, this ) );
+				}
+			} );
+		}
+
+		return returnValue;
+	};
+};
+
+$.Widget = function( /* options, element */ ) {};
+$.Widget._childConstructors = [];
+
+$.Widget.prototype = {
+	widgetName: "widget",
+	widgetEventPrefix: "",
+	defaultElement: "<div>",
+
+	options: {
+		classes: {},
+		disabled: false,
+
+		// Callbacks
+		create: null
+	},
+
+	_createWidget: function( options, element ) {
+		element = $( element || this.defaultElement || this )[ 0 ];
+		this.element = $( element );
+		this.uuid = widgetUuid++;
+		this.eventNamespace = "." + this.widgetName + this.uuid;
+
+		this.bindings = $();
+		this.hoverable = $();
+		this.focusable = $();
+		this.classesElementLookup = {};
+
+		if ( element !== this ) {
+			$.data( element, this.widgetFullName, this );
+			this._on( true, this.element, {
+				remove: function( event ) {
+					if ( event.target === element ) {
+						this.destroy();
+					}
+				}
+			} );
+			this.document = $( element.style ?
+
+				// Element within the document
+				element.ownerDocument :
+
+				// Element is window or document
+				element.document || element );
+			this.window = $( this.document[ 0 ].defaultView || this.document[ 0 ].parentWindow );
+		}
+
+		this.options = $.widget.extend( {},
+			this.options,
+			this._getCreateOptions(),
+			options );
+
+		this._create();
+
+		if ( this.options.disabled ) {
+			this._setOptionDisabled( this.options.disabled );
+		}
+
+		this._trigger( "create", null, this._getCreateEventData() );
+		this._init();
+	},
+
+	_getCreateOptions: function() {
+		return {};
+	},
+
+	_getCreateEventData: $.noop,
+
+	_create: $.noop,
+
+	_init: $.noop,
+
+	destroy: function() {
+		var that = this;
+
+		this._destroy();
+		$.each( this.classesElementLookup, function( key, value ) {
+			that._removeClass( value, key );
+		} );
+
+		// We can probably remove the unbind calls in 2.0
+		// all event bindings should go through this._on()
+		this.element
+			.off( this.eventNamespace )
+			.removeData( this.widgetFullName );
+		this.widget()
+			.off( this.eventNamespace )
+			.removeAttr( "aria-disabled" );
+
+		// Clean up events and states
+		this.bindings.off( this.eventNamespace );
+	},
+
+	_destroy: $.noop,
+
+	widget: function() {
+		return this.element;
+	},
+
+	option: function( key, value ) {
+		var options = key;
+		var parts;
+		var curOption;
+		var i;
+
+		if ( arguments.length === 0 ) {
+
+			// Don't return a reference to the internal hash
+			return $.widget.extend( {}, this.options );
+		}
+
+		if ( typeof key === "string" ) {
+
+			// Handle nested keys, e.g., "foo.bar" => { foo: { bar: ___ } }
+			options = {};
+			parts = key.split( "." );
+			key = parts.shift();
+			if ( parts.length ) {
+				curOption = options[ key ] = $.widget.extend( {}, this.options[ key ] );
+				for ( i = 0; i < parts.length - 1; i++ ) {
+					curOption[ parts[ i ] ] = curOption[ parts[ i ] ] || {};
+					curOption = curOption[ parts[ i ] ];
+				}
+				key = parts.pop();
+				if ( arguments.length === 1 ) {
+					return curOption[ key ] === undefined ? null : curOption[ key ];
+				}
+				curOption[ key ] = value;
+			} else {
+				if ( arguments.length === 1 ) {
+					return this.options[ key ] === undefined ? null : this.options[ key ];
+				}
+				options[ key ] = value;
+			}
+		}
+
+		this._setOptions( options );
+
+		return this;
+	},
+
+	_setOptions: function( options ) {
+		var key;
+
+		for ( key in options ) {
+			this._setOption( key, options[ key ] );
+		}
+
+		return this;
+	},
+
+	_setOption: function( key, value ) {
+		if ( key === "classes" ) {
+			this._setOptionClasses( value );
+		}
+
+		this.options[ key ] = value;
+
+		if ( key === "disabled" ) {
+			this._setOptionDisabled( value );
+		}
+
+		return this;
+	},
+
+	_setOptionClasses: function( value ) {
+		var classKey, elements, currentElements;
+
+		for ( classKey in value ) {
+			currentElements = this.classesElementLookup[ classKey ];
+			if ( value[ classKey ] === this.options.classes[ classKey ] ||
+					!currentElements ||
+					!currentElements.length ) {
+				continue;
+			}
+
+			// We are doing this to create a new jQuery object because the _removeClass() call
+			// on the next line is going to destroy the reference to the current elements being
+			// tracked. We need to save a copy of this collection so that we can add the new classes
+			// below.
+			elements = $( currentElements.get() );
+			this._removeClass( currentElements, classKey );
+
+			// We don't use _addClass() here, because that uses this.options.classes
+			// for generating the string of classes. We want to use the value passed in from
+			// _setOption(), this is the new value of the classes option which was passed to
+			// _setOption(). We pass this value directly to _classes().
+			elements.addClass( this._classes( {
+				element: elements,
+				keys: classKey,
+				classes: value,
+				add: true
+			} ) );
+		}
+	},
+
+	_setOptionDisabled: function( value ) {
+		this._toggleClass( this.widget(), this.widgetFullName + "-disabled", null, !!value );
+
+		// If the widget is becoming disabled, then nothing is interactive
+		if ( value ) {
+			this._removeClass( this.hoverable, null, "ui-state-hover" );
+			this._removeClass( this.focusable, null, "ui-state-focus" );
+		}
+	},
+
+	enable: function() {
+		return this._setOptions( { disabled: false } );
+	},
+
+	disable: function() {
+		return this._setOptions( { disabled: true } );
+	},
+
+	_classes: function( options ) {
+		var full = [];
+		var that = this;
+
+		options = $.extend( {
+			element: this.element,
+			classes: this.options.classes || {}
+		}, options );
+
+		function processClassString( classes, checkOption ) {
+			var current, i;
+			for ( i = 0; i < classes.length; i++ ) {
+				current = that.classesElementLookup[ classes[ i ] ] || $();
+				if ( options.add ) {
+					current = $( $.unique( current.get().concat( options.element.get() ) ) );
+				} else {
+					current = $( current.not( options.element ).get() );
+				}
+				that.classesElementLookup[ classes[ i ] ] = current;
+				full.push( classes[ i ] );
+				if ( checkOption && options.classes[ classes[ i ] ] ) {
+					full.push( options.classes[ classes[ i ] ] );
+				}
+			}
+		}
+
+		this._on( options.element, {
+			"remove": "_untrackClassesElement"
+		} );
+
+		if ( options.keys ) {
+			processClassString( options.keys.match( /\S+/g ) || [], true );
+		}
+		if ( options.extra ) {
+			processClassString( options.extra.match( /\S+/g ) || [] );
+		}
+
+		return full.join( " " );
+	},
+
+	_untrackClassesElement: function( event ) {
+		var that = this;
+		$.each( that.classesElementLookup, function( key, value ) {
+			if ( $.inArray( event.target, value ) !== -1 ) {
+				that.classesElementLookup[ key ] = $( value.not( event.target ).get() );
+			}
+		} );
+	},
+
+	_removeClass: function( element, keys, extra ) {
+		return this._toggleClass( element, keys, extra, false );
+	},
+
+	_addClass: function( element, keys, extra ) {
+		return this._toggleClass( element, keys, extra, true );
+	},
+
+	_toggleClass: function( element, keys, extra, add ) {
+		add = ( typeof add === "boolean" ) ? add : extra;
+		var shift = ( typeof element === "string" || element === null ),
+			options = {
+				extra: shift ? keys : extra,
+				keys: shift ? element : keys,
+				element: shift ? this.element : element,
+				add: add
+			};
+		options.element.toggleClass( this._classes( options ), add );
+		return this;
+	},
+
+	_on: function( suppressDisabledCheck, element, handlers ) {
+		var delegateElement;
+		var instance = this;
+
+		// No suppressDisabledCheck flag, shuffle arguments
+		if ( typeof suppressDisabledCheck !== "boolean" ) {
+			handlers = element;
+			element = suppressDisabledCheck;
+			suppressDisabledCheck = false;
+		}
+
+		// No element argument, shuffle and use this.element
+		if ( !handlers ) {
+			handlers = element;
+			element = this.element;
+			delegateElement = this.widget();
+		} else {
+			element = delegateElement = $( element );
+			this.bindings = this.bindings.add( element );
+		}
+
+		$.each( handlers, function( event, handler ) {
+			function handlerProxy() {
+
+				// Allow widgets to customize the disabled handling
+				// - disabled as an array instead of boolean
+				// - disabled class as method for disabling individual parts
+				if ( !suppressDisabledCheck &&
+						( instance.options.disabled === true ||
+						$( this ).hasClass( "ui-state-disabled" ) ) ) {
+					return;
+				}
+				return ( typeof handler === "string" ? instance[ handler ] : handler )
+					.apply( instance, arguments );
+			}
+
+			// Copy the guid so direct unbinding works
+			if ( typeof handler !== "string" ) {
+				handlerProxy.guid = handler.guid =
+					handler.guid || handlerProxy.guid || $.guid++;
+			}
+
+			var match = event.match( /^([\w:-]*)\s*(.*)$/ );
+			var eventName = match[ 1 ] + instance.eventNamespace;
+			var selector = match[ 2 ];
+
+			if ( selector ) {
+				delegateElement.on( eventName, selector, handlerProxy );
+			} else {
+				element.on( eventName, handlerProxy );
+			}
+		} );
+	},
+
+	_off: function( element, eventName ) {
+		eventName = ( eventName || "" ).split( " " ).join( this.eventNamespace + " " ) +
+			this.eventNamespace;
+		element.off( eventName ).off( eventName );
+
+		// Clear the stack to avoid memory leaks (#10056)
+		this.bindings = $( this.bindings.not( element ).get() );
+		this.focusable = $( this.focusable.not( element ).get() );
+		this.hoverable = $( this.hoverable.not( element ).get() );
+	},
+
+	_delay: function( handler, delay ) {
+		function handlerProxy() {
+			return ( typeof handler === "string" ? instance[ handler ] : handler )
+				.apply( instance, arguments );
+		}
+		var instance = this;
+		return setTimeout( handlerProxy, delay || 0 );
+	},
+
+	_hoverable: function( element ) {
+		this.hoverable = this.hoverable.add( element );
+		this._on( element, {
+			mouseenter: function( event ) {
+				this._addClass( $( event.currentTarget ), null, "ui-state-hover" );
+			},
+			mouseleave: function( event ) {
+				this._removeClass( $( event.currentTarget ), null, "ui-state-hover" );
+			}
+		} );
+	},
+
+	_focusable: function( element ) {
+		this.focusable = this.focusable.add( element );
+		this._on( element, {
+			focusin: function( event ) {
+				this._addClass( $( event.currentTarget ), null, "ui-state-focus" );
+			},
+			focusout: function( event ) {
+				this._removeClass( $( event.currentTarget ), null, "ui-state-focus" );
+			}
+		} );
+	},
+
+	_trigger: function( type, event, data ) {
+		var prop, orig;
+		var callback = this.options[ type ];
+
+		data = data || {};
+		event = $.Event( event );
+		event.type = ( type === this.widgetEventPrefix ?
+			type :
+			this.widgetEventPrefix + type ).toLowerCase();
+
+		// The original event may come from any element
+		// so we need to reset the target on the new event
+		event.target = this.element[ 0 ];
+
+		// Copy original event properties over to the new event
+		orig = event.originalEvent;
+		if ( orig ) {
+			for ( prop in orig ) {
+				if ( !( prop in event ) ) {
+					event[ prop ] = orig[ prop ];
+				}
+			}
+		}
+
+		this.element.trigger( event, data );
+		return !( $.isFunction( callback ) &&
+			callback.apply( this.element[ 0 ], [ event ].concat( data ) ) === false ||
+			event.isDefaultPrevented() );
+	}
+};
+
+$.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
+	$.Widget.prototype[ "_" + method ] = function( element, options, callback ) {
+		if ( typeof options === "string" ) {
+			options = { effect: options };
+		}
+
+		var hasOptions;
+		var effectName = !options ?
+			method :
+			options === true || typeof options === "number" ?
+				defaultEffect :
+				options.effect || defaultEffect;
+
+		options = options || {};
+		if ( typeof options === "number" ) {
+			options = { duration: options };
+		}
+
+		hasOptions = !$.isEmptyObject( options );
+		options.complete = callback;
+
+		if ( options.delay ) {
+			element.delay( options.delay );
+		}
+
+		if ( hasOptions && $.effects && $.effects.effect[ effectName ] ) {
+			element[ method ]( options );
+		} else if ( effectName !== method && element[ effectName ] ) {
+			element[ effectName ]( options.duration, options.easing, callback );
+		} else {
+			element.queue( function( next ) {
+				$( this )[ method ]();
+				if ( callback ) {
+					callback.call( element[ 0 ] );
+				}
+				next();
+			} );
+		}
+	};
+} );
+
+var widget = $.widget;
+
+
+/*!
+ * jQuery UI Keycode 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Keycode
+//>>group: Core
+//>>description: Provide keycodes as keynames
+//>>docs: http://api.jqueryui.com/jQuery.ui.keyCode/
+
+
+var keycode = $.ui.keyCode = {
+	BACKSPACE: 8,
+	COMMA: 188,
+	DELETE: 46,
+	DOWN: 40,
+	END: 35,
+	ENTER: 13,
+	ESCAPE: 27,
+	HOME: 36,
+	LEFT: 37,
+	PAGE_DOWN: 34,
+	PAGE_UP: 33,
+	PERIOD: 190,
+	RIGHT: 39,
+	SPACE: 32,
+	TAB: 9,
+	UP: 38
+};
+
+
+
+
+// This file is deprecated
+var ie = $.ui.ie = !!/msie [\w.]+/.exec( navigator.userAgent.toLowerCase() );
+
+/*!
+ * jQuery UI Mouse 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Mouse
+//>>group: Widgets
+//>>description: Abstracts mouse-based interactions to assist in creating certain widgets.
+//>>docs: http://api.jqueryui.com/mouse/
+
+
+
+var mouseHandled = false;
+$( document ).on( "mouseup", function() {
+	mouseHandled = false;
+} );
+
+var widgetsMouse = $.widget( "ui.mouse", {
+	version: "1.12.1",
+	options: {
+		cancel: "input, textarea, button, select, option",
+		distance: 1,
+		delay: 0
+	},
+	_mouseInit: function() {
+		var that = this;
+
+		this.element
+			.on( "mousedown." + this.widgetName, function( event ) {
+				return that._mouseDown( event );
+			} )
+			.on( "click." + this.widgetName, function( event ) {
+				if ( true === $.data( event.target, that.widgetName + ".preventClickEvent" ) ) {
+					$.removeData( event.target, that.widgetName + ".preventClickEvent" );
+					event.stopImmediatePropagation();
+					return false;
+				}
+			} );
+
+		this.started = false;
+	},
+
+	// TODO: make sure destroying one instance of mouse doesn't mess with
+	// other instances of mouse
+	_mouseDestroy: function() {
+		this.element.off( "." + this.widgetName );
+		if ( this._mouseMoveDelegate ) {
+			this.document
+				.off( "mousemove." + this.widgetName, this._mouseMoveDelegate )
+				.off( "mouseup." + this.widgetName, this._mouseUpDelegate );
+		}
+	},
+
+	_mouseDown: function( event ) {
+
+		// don't let more than one widget handle mouseStart
+		if ( mouseHandled ) {
+			return;
+		}
+
+		this._mouseMoved = false;
+
+		// We may have missed mouseup (out of window)
+		( this._mouseStarted && this._mouseUp( event ) );
+
+		this._mouseDownEvent = event;
+
+		var that = this,
+			btnIsLeft = ( event.which === 1 ),
+
+			// event.target.nodeName works around a bug in IE 8 with
+			// disabled inputs (#7620)
+			elIsCancel = ( typeof this.options.cancel === "string" && event.target.nodeName ?
+				$( event.target ).closest( this.options.cancel ).length : false );
+		if ( !btnIsLeft || elIsCancel || !this._mouseCapture( event ) ) {
+			return true;
+		}
+
+		this.mouseDelayMet = !this.options.delay;
+		if ( !this.mouseDelayMet ) {
+			this._mouseDelayTimer = setTimeout( function() {
+				that.mouseDelayMet = true;
+			}, this.options.delay );
+		}
+
+		if ( this._mouseDistanceMet( event ) && this._mouseDelayMet( event ) ) {
+			this._mouseStarted = ( this._mouseStart( event ) !== false );
+			if ( !this._mouseStarted ) {
+				event.preventDefault();
+				return true;
+			}
+		}
+
+		// Click event may never have fired (Gecko & Opera)
+		if ( true === $.data( event.target, this.widgetName + ".preventClickEvent" ) ) {
+			$.removeData( event.target, this.widgetName + ".preventClickEvent" );
+		}
+
+		// These delegates are required to keep context
+		this._mouseMoveDelegate = function( event ) {
+			return that._mouseMove( event );
+		};
+		this._mouseUpDelegate = function( event ) {
+			return that._mouseUp( event );
+		};
+
+		this.document
+			.on( "mousemove." + this.widgetName, this._mouseMoveDelegate )
+			.on( "mouseup." + this.widgetName, this._mouseUpDelegate );
+
+		event.preventDefault();
+
+		mouseHandled = true;
+		return true;
+	},
+
+	_mouseMove: function( event ) {
+
+		// Only check for mouseups outside the document if you've moved inside the document
+		// at least once. This prevents the firing of mouseup in the case of IE<9, which will
+		// fire a mousemove event if content is placed under the cursor. See #7778
+		// Support: IE <9
+		if ( this._mouseMoved ) {
+
+			// IE mouseup check - mouseup happened when mouse was out of window
+			if ( $.ui.ie && ( !document.documentMode || document.documentMode < 9 ) &&
+					!event.button ) {
+				return this._mouseUp( event );
+
+			// Iframe mouseup check - mouseup occurred in another document
+			} else if ( !event.which ) {
+
+				// Support: Safari <=8 - 9
+				// Safari sets which to 0 if you press any of the following keys
+				// during a drag (#14461)
+				if ( event.originalEvent.altKey || event.originalEvent.ctrlKey ||
+						event.originalEvent.metaKey || event.originalEvent.shiftKey ) {
+					this.ignoreMissingWhich = true;
+				} else if ( !this.ignoreMissingWhich ) {
+					return this._mouseUp( event );
+				}
+			}
+		}
+
+		if ( event.which || event.button ) {
+			this._mouseMoved = true;
+		}
+
+		if ( this._mouseStarted ) {
+			this._mouseDrag( event );
+			return event.preventDefault();
+		}
+
+		if ( this._mouseDistanceMet( event ) && this._mouseDelayMet( event ) ) {
+			this._mouseStarted =
+				( this._mouseStart( this._mouseDownEvent, event ) !== false );
+			( this._mouseStarted ? this._mouseDrag( event ) : this._mouseUp( event ) );
+		}
+
+		return !this._mouseStarted;
+	},
+
+	_mouseUp: function( event ) {
+		this.document
+			.off( "mousemove." + this.widgetName, this._mouseMoveDelegate )
+			.off( "mouseup." + this.widgetName, this._mouseUpDelegate );
+
+		if ( this._mouseStarted ) {
+			this._mouseStarted = false;
+
+			if ( event.target === this._mouseDownEvent.target ) {
+				$.data( event.target, this.widgetName + ".preventClickEvent", true );
+			}
+
+			this._mouseStop( event );
+		}
+
+		if ( this._mouseDelayTimer ) {
+			clearTimeout( this._mouseDelayTimer );
+			delete this._mouseDelayTimer;
+		}
+
+		this.ignoreMissingWhich = false;
+		mouseHandled = false;
+		event.preventDefault();
+	},
+
+	_mouseDistanceMet: function( event ) {
+		return ( Math.max(
+				Math.abs( this._mouseDownEvent.pageX - event.pageX ),
+				Math.abs( this._mouseDownEvent.pageY - event.pageY )
+			) >= this.options.distance
+		);
+	},
+
+	_mouseDelayMet: function( /* event */ ) {
+		return this.mouseDelayMet;
+	},
+
+	// These are placeholder methods, to be overriden by extending plugin
+	_mouseStart: function( /* event */ ) {},
+	_mouseDrag: function( /* event */ ) {},
+	_mouseStop: function( /* event */ ) {},
+	_mouseCapture: function( /* event */ ) { return true; }
+} );
+
+
+/*!
+ * jQuery UI Slider 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: Slider
+//>>group: Widgets
+//>>description: Displays a flexible slider with ranges and accessibility via keyboard.
+//>>docs: http://api.jqueryui.com/slider/
+//>>demos: http://jqueryui.com/slider/
+//>>css.structure: ../../themes/base/core.css
+//>>css.structure: ../../themes/base/slider.css
+//>>css.theme: ../../themes/base/theme.css
+
+
+
+var widgetsSlider = $.widget( "ui.slider", $.ui.mouse, {
+	version: "1.12.1",
+	widgetEventPrefix: "slide",
+
+	options: {
+		animate: false,
+		classes: {
+			"ui-slider": "ui-corner-all",
+			"ui-slider-handle": "ui-corner-all",
+
+			// Note: ui-widget-header isn't the most fittingly semantic framework class for this
+			// element, but worked best visually with a variety of themes
+			"ui-slider-range": "ui-corner-all ui-widget-header"
+		},
+		distance: 0,
+		max: 100,
+		min: 0,
+		orientation: "horizontal",
+		range: false,
+		step: 1,
+		value: 0,
+		values: null,
+
+		// Callbacks
+		change: null,
+		slide: null,
+		start: null,
+		stop: null
+	},
+
+	// Number of pages in a slider
+	// (how many times can you page up/down to go through the whole range)
+	numPages: 5,
+
+	_create: function() {
+		this._keySliding = false;
+		this._mouseSliding = false;
+		this._animateOff = true;
+		this._handleIndex = null;
+		this._detectOrientation();
+		this._mouseInit();
+		this._calculateNewMax();
+
+		this._addClass( "ui-slider ui-slider-" + this.orientation,
+			"ui-widget ui-widget-content" );
+
+		this._refresh();
+
+		this._animateOff = false;
+	},
+
+	_refresh: function() {
+		this._createRange();
+		this._createHandles();
+		this._setupEvents();
+		this._refreshValue();
+	},
+
+	_createHandles: function() {
+		var i, handleCount,
+			options = this.options,
+			existingHandles = this.element.find( ".ui-slider-handle" ),
+			handle = "<span tabindex='0'></span>",
+			handles = [];
+
+		handleCount = ( options.values && options.values.length ) || 1;
+
+		if ( existingHandles.length > handleCount ) {
+			existingHandles.slice( handleCount ).remove();
+			existingHandles = existingHandles.slice( 0, handleCount );
+		}
+
+		for ( i = existingHandles.length; i < handleCount; i++ ) {
+			handles.push( handle );
+		}
+
+		this.handles = existingHandles.add( $( handles.join( "" ) ).appendTo( this.element ) );
+
+		this._addClass( this.handles, "ui-slider-handle", "ui-state-default" );
+
+		this.handle = this.handles.eq( 0 );
+
+		this.handles.each( function( i ) {
+			$( this )
+				.data( "ui-slider-handle-index", i )
+				.attr( "tabIndex", 0 );
+		} );
+	},
+
+	_createRange: function() {
+		var options = this.options;
+
+		if ( options.range ) {
+			if ( options.range === true ) {
+				if ( !options.values ) {
+					options.values = [ this._valueMin(), this._valueMin() ];
+				} else if ( options.values.length && options.values.length !== 2 ) {
+					options.values = [ options.values[ 0 ], options.values[ 0 ] ];
+				} else if ( $.isArray( options.values ) ) {
+					options.values = options.values.slice( 0 );
+				}
+			}
+
+			if ( !this.range || !this.range.length ) {
+				this.range = $( "<div>" )
+					.appendTo( this.element );
+
+				this._addClass( this.range, "ui-slider-range" );
+			} else {
+				this._removeClass( this.range, "ui-slider-range-min ui-slider-range-max" );
+
+				// Handle range switching from true to min/max
+				this.range.css( {
+					"left": "",
+					"bottom": ""
+				} );
+			}
+			if ( options.range === "min" || options.range === "max" ) {
+				this._addClass( this.range, "ui-slider-range-" + options.range );
+			}
+		} else {
+			if ( this.range ) {
+				this.range.remove();
+			}
+			this.range = null;
+		}
+	},
+
+	_setupEvents: function() {
+		this._off( this.handles );
+		this._on( this.handles, this._handleEvents );
+		this._hoverable( this.handles );
+		this._focusable( this.handles );
+	},
+
+	_destroy: function() {
+		this.handles.remove();
+		if ( this.range ) {
+			this.range.remove();
+		}
+
+		this._mouseDestroy();
+	},
+
+	_mouseCapture: function( event ) {
+		var position, normValue, distance, closestHandle, index, allowed, offset, mouseOverHandle,
+			that = this,
+			o = this.options;
+
+		if ( o.disabled ) {
+			return false;
+		}
+
+		this.elementSize = {
+			width: this.element.outerWidth(),
+			height: this.element.outerHeight()
+		};
+		this.elementOffset = this.element.offset();
+
+		position = { x: event.pageX, y: event.pageY };
+		normValue = this._normValueFromMouse( position );
+		distance = this._valueMax() - this._valueMin() + 1;
+		this.handles.each( function( i ) {
+			var thisDistance = Math.abs( normValue - that.values( i ) );
+			if ( ( distance > thisDistance ) ||
+				( distance === thisDistance &&
+					( i === that._lastChangedValue || that.values( i ) === o.min ) ) ) {
+				distance = thisDistance;
+				closestHandle = $( this );
+				index = i;
+			}
+		} );
+
+		allowed = this._start( event, index );
+		if ( allowed === false ) {
+			return false;
+		}
+		this._mouseSliding = true;
+
+		this._handleIndex = index;
+
+		this._addClass( closestHandle, null, "ui-state-active" );
+		closestHandle.trigger( "focus" );
+
+		offset = closestHandle.offset();
+		mouseOverHandle = !$( event.target ).parents().addBack().is( ".ui-slider-handle" );
+		this._clickOffset = mouseOverHandle ? { left: 0, top: 0 } : {
+			left: event.pageX - offset.left - ( closestHandle.width() / 2 ),
+			top: event.pageY - offset.top -
+				( closestHandle.height() / 2 ) -
+				( parseInt( closestHandle.css( "borderTopWidth" ), 10 ) || 0 ) -
+				( parseInt( closestHandle.css( "borderBottomWidth" ), 10 ) || 0 ) +
+				( parseInt( closestHandle.css( "marginTop" ), 10 ) || 0 )
+		};
+
+		if ( !this.handles.hasClass( "ui-state-hover" ) ) {
+			this._slide( event, index, normValue );
+		}
+		this._animateOff = true;
+		return true;
+	},
+
+	_mouseStart: function() {
+		return true;
+	},
+
+	_mouseDrag: function( event ) {
+		var position = { x: event.pageX, y: event.pageY },
+			normValue = this._normValueFromMouse( position );
+
+		this._slide( event, this._handleIndex, normValue );
+
+		return false;
+	},
+
+	_mouseStop: function( event ) {
+		this._removeClass( this.handles, null, "ui-state-active" );
+		this._mouseSliding = false;
+
+		this._stop( event, this._handleIndex );
+		this._change( event, this._handleIndex );
+
+		this._handleIndex = null;
+		this._clickOffset = null;
+		this._animateOff = false;
+
+		return false;
+	},
+
+	_detectOrientation: function() {
+		this.orientation = ( this.options.orientation === "vertical" ) ? "vertical" : "horizontal";
+	},
+
+	_normValueFromMouse: function( position ) {
+		var pixelTotal,
+			pixelMouse,
+			percentMouse,
+			valueTotal,
+			valueMouse;
+
+		if ( this.orientation === "horizontal" ) {
+			pixelTotal = this.elementSize.width;
+			pixelMouse = position.x - this.elementOffset.left -
+				( this._clickOffset ? this._clickOffset.left : 0 );
+		} else {
+			pixelTotal = this.elementSize.height;
+			pixelMouse = position.y - this.elementOffset.top -
+				( this._clickOffset ? this._clickOffset.top : 0 );
+		}
+
+		percentMouse = ( pixelMouse / pixelTotal );
+		if ( percentMouse > 1 ) {
+			percentMouse = 1;
+		}
+		if ( percentMouse < 0 ) {
+			percentMouse = 0;
+		}
+		if ( this.orientation === "vertical" ) {
+			percentMouse = 1 - percentMouse;
+		}
+
+		valueTotal = this._valueMax() - this._valueMin();
+		valueMouse = this._valueMin() + percentMouse * valueTotal;
+
+		return this._trimAlignValue( valueMouse );
+	},
+
+	_uiHash: function( index, value, values ) {
+		var uiHash = {
+			handle: this.handles[ index ],
+			handleIndex: index,
+			value: value !== undefined ? value : this.value()
+		};
+
+		if ( this._hasMultipleValues() ) {
+			uiHash.value = value !== undefined ? value : this.values( index );
+			uiHash.values = values || this.values();
+		}
+
+		return uiHash;
+	},
+
+	_hasMultipleValues: function() {
+		return this.options.values && this.options.values.length;
+	},
+
+	_start: function( event, index ) {
+		return this._trigger( "start", event, this._uiHash( index ) );
+	},
+
+	_slide: function( event, index, newVal ) {
+		var allowed, otherVal,
+			currentValue = this.value(),
+			newValues = this.values();
+
+		if ( this._hasMultipleValues() ) {
+			otherVal = this.values( index ? 0 : 1 );
+			currentValue = this.values( index );
+
+			if ( this.options.values.length === 2 && this.options.range === true ) {
+				newVal =  index === 0 ? Math.min( otherVal, newVal ) : Math.max( otherVal, newVal );
+			}
+
+			newValues[ index ] = newVal;
+		}
+
+		if ( newVal === currentValue ) {
+			return;
+		}
+
+		allowed = this._trigger( "slide", event, this._uiHash( index, newVal, newValues ) );
+
+		// A slide can be canceled by returning false from the slide callback
+		if ( allowed === false ) {
+			return;
+		}
+
+		if ( this._hasMultipleValues() ) {
+			this.values( index, newVal );
+		} else {
+			this.value( newVal );
+		}
+	},
+
+	_stop: function( event, index ) {
+		this._trigger( "stop", event, this._uiHash( index ) );
+	},
+
+	_change: function( event, index ) {
+		if ( !this._keySliding && !this._mouseSliding ) {
+
+			//store the last changed value index for reference when handles overlap
+			this._lastChangedValue = index;
+			this._trigger( "change", event, this._uiHash( index ) );
+		}
+	},
+
+	value: function( newValue ) {
+		if ( arguments.length ) {
+			this.options.value = this._trimAlignValue( newValue );
+			this._refreshValue();
+			this._change( null, 0 );
+			return;
+		}
+
+		return this._value();
+	},
+
+	values: function( index, newValue ) {
+		var vals,
+			newValues,
+			i;
+
+		if ( arguments.length > 1 ) {
+			this.options.values[ index ] = this._trimAlignValue( newValue );
+			this._refreshValue();
+			this._change( null, index );
+			return;
+		}
+
+		if ( arguments.length ) {
+			if ( $.isArray( arguments[ 0 ] ) ) {
+				vals = this.options.values;
+				newValues = arguments[ 0 ];
+				for ( i = 0; i < vals.length; i += 1 ) {
+					vals[ i ] = this._trimAlignValue( newValues[ i ] );
+					this._change( null, i );
+				}
+				this._refreshValue();
+			} else {
+				if ( this._hasMultipleValues() ) {
+					return this._values( index );
+				} else {
+					return this.value();
+				}
+			}
+		} else {
+			return this._values();
+		}
+	},
+
+	_setOption: function( key, value ) {
+		var i,
+			valsLength = 0;
+
+		if ( key === "range" && this.options.range === true ) {
+			if ( value === "min" ) {
+				this.options.value = this._values( 0 );
+				this.options.values = null;
+			} else if ( value === "max" ) {
+				this.options.value = this._values( this.options.values.length - 1 );
+				this.options.values = null;
+			}
+		}
+
+		if ( $.isArray( this.options.values ) ) {
+			valsLength = this.options.values.length;
+		}
+
+		this._super( key, value );
+
+		switch ( key ) {
+			case "orientation":
+				this._detectOrientation();
+				this._removeClass( "ui-slider-horizontal ui-slider-vertical" )
+					._addClass( "ui-slider-" + this.orientation );
+				this._refreshValue();
+				if ( this.options.range ) {
+					this._refreshRange( value );
+				}
+
+				// Reset positioning from previous orientation
+				this.handles.css( value === "horizontal" ? "bottom" : "left", "" );
+				break;
+			case "value":
+				this._animateOff = true;
+				this._refreshValue();
+				this._change( null, 0 );
+				this._animateOff = false;
+				break;
+			case "values":
+				this._animateOff = true;
+				this._refreshValue();
+
+				// Start from the last handle to prevent unreachable handles (#9046)
+				for ( i = valsLength - 1; i >= 0; i-- ) {
+					this._change( null, i );
+				}
+				this._animateOff = false;
+				break;
+			case "step":
+			case "min":
+			case "max":
+				this._animateOff = true;
+				this._calculateNewMax();
+				this._refreshValue();
+				this._animateOff = false;
+				break;
+			case "range":
+				this._animateOff = true;
+				this._refresh();
+				this._animateOff = false;
+				break;
+		}
+	},
+
+	_setOptionDisabled: function( value ) {
+		this._super( value );
+
+		this._toggleClass( null, "ui-state-disabled", !!value );
+	},
+
+	//internal value getter
+	// _value() returns value trimmed by min and max, aligned by step
+	_value: function() {
+		var val = this.options.value;
+		val = this._trimAlignValue( val );
+
+		return val;
+	},
+
+	//internal values getter
+	// _values() returns array of values trimmed by min and max, aligned by step
+	// _values( index ) returns single value trimmed by min and max, aligned by step
+	_values: function( index ) {
+		var val,
+			vals,
+			i;
+
+		if ( arguments.length ) {
+			val = this.options.values[ index ];
+			val = this._trimAlignValue( val );
+
+			return val;
+		} else if ( this._hasMultipleValues() ) {
+
+			// .slice() creates a copy of the array
+			// this copy gets trimmed by min and max and then returned
+			vals = this.options.values.slice();
+			for ( i = 0; i < vals.length; i += 1 ) {
+				vals[ i ] = this._trimAlignValue( vals[ i ] );
+			}
+
+			return vals;
+		} else {
+			return [];
+		}
+	},
+
+	// Returns the step-aligned value that val is closest to, between (inclusive) min and max
+	_trimAlignValue: function( val ) {
+		if ( val <= this._valueMin() ) {
+			return this._valueMin();
+		}
+		if ( val >= this._valueMax() ) {
+			return this._valueMax();
+		}
+		var step = ( this.options.step > 0 ) ? this.options.step : 1,
+			valModStep = ( val - this._valueMin() ) % step,
+			alignValue = val - valModStep;
+
+		if ( Math.abs( valModStep ) * 2 >= step ) {
+			alignValue += ( valModStep > 0 ) ? step : ( -step );
+		}
+
+		// Since JavaScript has problems with large floats, round
+		// the final value to 5 digits after the decimal point (see #4124)
+		return parseFloat( alignValue.toFixed( 5 ) );
+	},
+
+	_calculateNewMax: function() {
+		var max = this.options.max,
+			min = this._valueMin(),
+			step = this.options.step,
+			aboveMin = Math.round( ( max - min ) / step ) * step;
+		max = aboveMin + min;
+		if ( max > this.options.max ) {
+
+			//If max is not divisible by step, rounding off may increase its value
+			max -= step;
+		}
+		this.max = parseFloat( max.toFixed( this._precision() ) );
+	},
+
+	_precision: function() {
+		var precision = this._precisionOf( this.options.step );
+		if ( this.options.min !== null ) {
+			precision = Math.max( precision, this._precisionOf( this.options.min ) );
+		}
+		return precision;
+	},
+
+	_precisionOf: function( num ) {
+		var str = num.toString(),
+			decimal = str.indexOf( "." );
+		return decimal === -1 ? 0 : str.length - decimal - 1;
+	},
+
+	_valueMin: function() {
+		return this.options.min;
+	},
+
+	_valueMax: function() {
+		return this.max;
+	},
+
+	_refreshRange: function( orientation ) {
+		if ( orientation === "vertical" ) {
+			this.range.css( { "width": "", "left": "" } );
+		}
+		if ( orientation === "horizontal" ) {
+			this.range.css( { "height": "", "bottom": "" } );
+		}
+	},
+
+	_refreshValue: function() {
+		var lastValPercent, valPercent, value, valueMin, valueMax,
+			oRange = this.options.range,
+			o = this.options,
+			that = this,
+			animate = ( !this._animateOff ) ? o.animate : false,
+			_set = {};
+
+		if ( this._hasMultipleValues() ) {
+			this.handles.each( function( i ) {
+				valPercent = ( that.values( i ) - that._valueMin() ) / ( that._valueMax() -
+					that._valueMin() ) * 100;
+				_set[ that.orientation === "horizontal" ? "left" : "bottom" ] = valPercent + "%";
+				$( this ).stop( 1, 1 )[ animate ? "animate" : "css" ]( _set, o.animate );
+				if ( that.options.range === true ) {
+					if ( that.orientation === "horizontal" ) {
+						if ( i === 0 ) {
+							that.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( {
+								left: valPercent + "%"
+							}, o.animate );
+						}
+						if ( i === 1 ) {
+							that.range[ animate ? "animate" : "css" ]( {
+								width: ( valPercent - lastValPercent ) + "%"
+							}, {
+								queue: false,
+								duration: o.animate
+							} );
+						}
+					} else {
+						if ( i === 0 ) {
+							that.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( {
+								bottom: ( valPercent ) + "%"
+							}, o.animate );
+						}
+						if ( i === 1 ) {
+							that.range[ animate ? "animate" : "css" ]( {
+								height: ( valPercent - lastValPercent ) + "%"
+							}, {
+								queue: false,
+								duration: o.animate
+							} );
+						}
+					}
+				}
+				lastValPercent = valPercent;
+			} );
+		} else {
+			value = this.value();
+			valueMin = this._valueMin();
+			valueMax = this._valueMax();
+			valPercent = ( valueMax !== valueMin ) ?
+					( value - valueMin ) / ( valueMax - valueMin ) * 100 :
+					0;
+			_set[ this.orientation === "horizontal" ? "left" : "bottom" ] = valPercent + "%";
+			this.handle.stop( 1, 1 )[ animate ? "animate" : "css" ]( _set, o.animate );
+
+			if ( oRange === "min" && this.orientation === "horizontal" ) {
+				this.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( {
+					width: valPercent + "%"
+				}, o.animate );
+			}
+			if ( oRange === "max" && this.orientation === "horizontal" ) {
+				this.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( {
+					width: ( 100 - valPercent ) + "%"
+				}, o.animate );
+			}
+			if ( oRange === "min" && this.orientation === "vertical" ) {
+				this.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( {
+					height: valPercent + "%"
+				}, o.animate );
+			}
+			if ( oRange === "max" && this.orientation === "vertical" ) {
+				this.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( {
+					height: ( 100 - valPercent ) + "%"
+				}, o.animate );
+			}
+		}
+	},
+
+	_handleEvents: {
+		keydown: function( event ) {
+			var allowed, curVal, newVal, step,
+				index = $( event.target ).data( "ui-slider-handle-index" );
+
+			switch ( event.keyCode ) {
+				case $.ui.keyCode.HOME:
+				case $.ui.keyCode.END:
+				case $.ui.keyCode.PAGE_UP:
+				case $.ui.keyCode.PAGE_DOWN:
+				case $.ui.keyCode.UP:
+				case $.ui.keyCode.RIGHT:
+				case $.ui.keyCode.DOWN:
+				case $.ui.keyCode.LEFT:
+					event.preventDefault();
+					if ( !this._keySliding ) {
+						this._keySliding = true;
+						this._addClass( $( event.target ), null, "ui-state-active" );
+						allowed = this._start( event, index );
+						if ( allowed === false ) {
+							return;
+						}
+					}
+					break;
+			}
+
+			step = this.options.step;
+			if ( this._hasMultipleValues() ) {
+				curVal = newVal = this.values( index );
+			} else {
+				curVal = newVal = this.value();
+			}
+
+			switch ( event.keyCode ) {
+				case $.ui.keyCode.HOME:
+					newVal = this._valueMin();
+					break;
+				case $.ui.keyCode.END:
+					newVal = this._valueMax();
+					break;
+				case $.ui.keyCode.PAGE_UP:
+					newVal = this._trimAlignValue(
+						curVal + ( ( this._valueMax() - this._valueMin() ) / this.numPages )
+					);
+					break;
+				case $.ui.keyCode.PAGE_DOWN:
+					newVal = this._trimAlignValue(
+						curVal - ( ( this._valueMax() - this._valueMin() ) / this.numPages ) );
+					break;
+				case $.ui.keyCode.UP:
+				case $.ui.keyCode.RIGHT:
+					if ( curVal === this._valueMax() ) {
+						return;
+					}
+					newVal = this._trimAlignValue( curVal + step );
+					break;
+				case $.ui.keyCode.DOWN:
+				case $.ui.keyCode.LEFT:
+					if ( curVal === this._valueMin() ) {
+						return;
+					}
+					newVal = this._trimAlignValue( curVal - step );
+					break;
+			}
+
+			this._slide( event, index, newVal );
+		},
+		keyup: function( event ) {
+			var index = $( event.target ).data( "ui-slider-handle-index" );
+
+			if ( this._keySliding ) {
+				this._keySliding = false;
+				this._stop( event, index );
+				this._change( event, index );
+				this._removeClass( $( event.target ), null, "ui-state-active" );
+			}
+		}
+	}
+} );
+
+
+
+
+}));
+
+$(document).ready(function() {
+  // __________VARIABLES_____________
+  var playPause = $('.play-pause');
+  var playButton = $('#play-button');
+  var pauseButton = $('#pause-button');
+  var nextButton = $('#next-button');
+  var audioPlayer = $('#audio-player');
+  var thumbnail = $('#thumbnail');
+  var slider = $('.progress-bar').slider({
+    step: 0.01
+  });
+  var thisSong = $('.active.playlist-item');
+  var playlistItems = $('.playlist-item');
+  var title =$('#title');
+  var nowPlaying = $('#now-playing');
+
+  // __________FUNCTIONS_____________
+  // Toggle UI buttons
+  function togglePlayPause() {
+    playButton.toggleClass("d-none");
+    pauseButton.toggleClass('d-none');
+  };
+  // Loads the title information into the #title element
+  function trackName() {
+    title.html(thisSong.html());
+  }
+  // Load next track and updates the UI.
+  // Use dest = 'this' as call(this, 'this') to go the clicked items
+  // Use nextTrack() to go to the next playlist item. If the current
+  // playlist item is the last, it will go to the first.
+  function nextTrack(dest) {
+    // Toggle Play/Pause button if paused
+    if (playButton.is(':visible')) {
+      togglePlayPause();
+    }
+    // Update UI
+    thisSong.toggleClass('active');
+    // Set default value for dest
+    if (dest !== 'this') {
+      dest = 'next';
+    }
+    // Update active playlist item NEXT
+    if (dest === 'next') {
+      if (thisSong.is(':last-child')) {
+        thisSong = $('.playlist-item').first();
+      } else {
+        thisSong = thisSong.next();
+      }
+    }
+    // Update active playlist item THIS
+    else if (dest === 'this') {
+      thisSong = $(this);
+    }
+    // Update src and UI
+    audioPlayer['0'].pause();
+    thisSong.toggleClass('active');
+    trackName();
+    audioPlayer.attr('src', thisSong.attr('audio_url'));
+    thumbnail.attr('src', thisSong.attr('img_url'));
+    // Reset time and play
+    audioPlayer['0'].currentTime = 0;
+    audioPlayer['0'].play();
+  }
+  
+  // Load the Play Pause Button functionality
+  playPause.click(function() {
+    if (audioPlayer['0'].paused === true) {
+      audioPlayer['0'].play();
+      togglePlayPause();
+      trackName();
+      nowPlaying.slideDown();
+      //Change icon to Pause
+    }
+    else {
+      audioPlayer['0'].pause();
+      togglePlayPause();
+    }
+  });
+
+  //  SLIDER
+  $('.progress-bar').slider();
+  // moves the slider on progress
+  audioPlayer.on('timeupdate', function() {
+    // $('.progress').attr("aria-value-now", this.currentTime / this.duration * 100);
+    // $('.progress-bar').css("width", this.currentTime / this.duration * 100);
+
+    slider.slider( "option", "value", this.currentTime / this.duration * 100 );
+  });
+  //  changes playback time on slider input
+  slider.on('slidestop', function( event, ui ) {
+    var newTime = ui.value / 100 * audioPlayer['0'].duration;
+    audioPlayer['0'].currentTime = newTime;
+  })
+
+  //   PLAYLIST
+  audioPlayer.attr("src", thisSong.attr('audio_url'));
+  // NEXT button functionality
+  nextButton.click(function() {
+    audioPlayer['0'].pause();
+    nextTrack();
+  });
+
+  // Click on playlist items functionality
+  playlistItems.click(function() {
+    nowPlaying.slideDown();
+    if (audioPlayer['0'].paused) {
+      togglePlayPause();
+    }
+    audioPlayer['0'].pause();
+    // call the global nextTrack('this') function from within the current function scope
+    nextTrack.call(this, 'this');
+  });
+
+  // Go to next track when track has ended
+
+  audioPlayer.bind('ended', function() {
+    // done playing
+    nextTrack();
+  });
+});
+
+</script>
+<style>
+.audio-player {
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.audio-player i {
+  font-size: 24vw;
+}
+#next-button {
+    font-size: 18vw;
+}
+
+@media screen and (min-width:560px) {
+  .audio-player i {
+    font-size: 134px;
+  }
+  #next-button {
+    font-size: 100px;
+  }
+}
+
+#now-playing {
+  display: none;
+}
+
+.progress {
+  overflow: visible;
+}
+
+li.active:before {
+  font-family: "Material Icons";
+  content: "\e037";
+  display: inline-block;
+  padding-right: 3px;
+  vertical-align: middle;
+  font-size: 1.5rem;
+}
+
+.ui-slider-handle {
+  border-radius: 50%;
+}
+
+</style>
+
+</body>
+</html>
